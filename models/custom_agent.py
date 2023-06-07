@@ -73,19 +73,15 @@ class CustomOutputParser(AgentOutputParser):
         # group1 = 调用函数名字
         # group2 = 传入参数
         match = re.match(r'^[\s\w]*(DeepSearch)\(([^\)]+)\)', llm_output, re.DOTALL)
-        # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>..", llm_output, match)
-
 
         # 如果 llm 没有返回 DeepSearch() 则认为直接结束指令
         if not match:
-            # print("No Match!!!!!!!!!!!!!!!!!!!, Finish")
             return AgentFinish(
                 return_values={"output": llm_output.strip()},
                 log=llm_output,
             )
         # 否则的话都认为需要调用 Tool
         else:
-            # print("Match!!!!!!!!!!!!!!!!!!! Go ON deepsearch")
             action = match.group(1).strip()
             action_input = match.group(2).strip()
             return AgentAction(tool=action, tool_input=action_input.strip(" ").strip('"'), log=llm_output)
