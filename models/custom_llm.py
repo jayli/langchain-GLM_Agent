@@ -38,7 +38,6 @@ class CustomLLM(LLM):
             "ask": prompt
         })
         if self._llm_type == "chatglm":
-            # 我部署的 chatglm
             self.log('<--------chatglm------------')
             self.log(response)
             return response

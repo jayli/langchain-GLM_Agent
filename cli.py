@@ -6,12 +6,12 @@ from models.custom_llm import CustomLLM
 from models.custom_agent import DeepAgent
 from models.util import LocalDocQA
 from models.config import *
-
+EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 
 deep_agent = DeepAgent()
 
 embeddings = HuggingFaceEmbeddings(model_name="GanymedeNil/text2vec-base-chinese",
-                                   model_kwargs={'device':'mps'})
+                                   model_kwargs={'device':EMBEDDING_DEVICE})
 
 qa_doc = LocalDocQA(filepath=LOCAL_CONTENT,
                     vs_path=VS_PATH,
