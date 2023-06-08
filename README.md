@@ -2,6 +2,8 @@
 
 langchain + chatgpt 的 agent 真香，实现了一个简单的基于 chatglm 的 custom agent。支持本地知识库和联网检索。llm 也是自定义，如果想改成 openAI 也可以。
 
+详细介绍参照这里：<https://zhuanlan.zhihu.com/p/635724707>
+
 ## 介绍
 
 langchain 的 agent 设计的非常聪明，但这个“聪明”是基于 chatgpt 强大的理解力，agent 自带的 prompt 并不能被 chatglm-6b 很好的理解，主要是 Action 字段和 Input 字段总是出错，所以我针对 chatglm 写了一个简单的 custom agent，不能做到 100% 的 prompt 指令精确响应，我实测 80% 的情况下可以正确响应，结合 Tool 能实现一些复杂的应用。
