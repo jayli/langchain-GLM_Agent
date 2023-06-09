@@ -15,7 +15,7 @@ langchain 的 agent 设计的非常聪明，但这个“聪明”是基于 chatg
 ## 准备工作
 
 1. 部署你的 chatglm 大模型，确保可以 api 调用，修改 `models/custom_llm.py` 里 `_call` 方法里的调用地址，或者你用 openAI 代替也可以，参照 [langchain 官网文档](https://python.langchain.com/)
-1. `models/custom_search.py` 中设置你的 `RapidAPIKey = ""`，[申请步骤异步这里](https://rapidapi.com/hub)
+1. `models/custom_search.py` 中设置你的 `RapidAPIKey = ""`，[申请步骤异步这里](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-web-search1)（接口名字可以搜索：`bing-web-search1`）
 
 代码checkout下来后，执行
 
